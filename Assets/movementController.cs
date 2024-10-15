@@ -11,6 +11,7 @@ public class movementController : MonoBehaviour
     float x = 0;
     float y = 0;
     float z = 0;
+    private int score;
     //public void AddForce(float x, float y, float z, ForceMode mode = ForceMode.Force);
 
     // Start is called before the first frame update
@@ -25,19 +26,30 @@ public class movementController : MonoBehaviour
 
     void Update()
     {
-        float x = 0;
-        float z = 0;
 
         if (Input.GetKey(KeyCode.W))
-        { z = z + 1; }
+        { rb.AddForce(Vector3.forward * thrust); }
 
         if (Input.GetKey(KeyCode.S))
-        { z = z - 1; }
+        { rb.AddForce(Vector3.back * thrust); }
 
         if (Input.GetKey(KeyCode.A))
-        { x = x + 1; }
+        { rb.AddForce(Vector3.left * thrust); }
 
         if (Input.GetKey(KeyCode.D))
-        { x = x - 1; }
+        { rb.AddForce(Vector3.right * thrust); }
+        
+        if(score >= 12)
+        {
+            Debug.Log("----------------------------------------");
+            Debug.Log("wygrales:)");
+            Debug.Log("----------------------------------------");
+        }
+    }
+
+    public void CollectScore()
+    {
+        score += 1;
+        Debug.Log("zdobyles punkt, masz teraz:" + score);
     }
 }
