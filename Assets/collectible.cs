@@ -24,7 +24,6 @@ public class collectible : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         collision.gameObject.GetComponent<movementController>().CollectScore();
-        Debug.Log("zdobyles punkt");
         gameObject.SetActive(false);
     }
 }

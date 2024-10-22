@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class movementController : MonoBehaviour
 {
     public float thrust = 5.0f;
     public Rigidbody rb;
-    float move = 0;
     float x = 0;
     float y = 0;
     float z = 0;
     private int score;
+    public Text scoreText;
     //public void AddForce(float x, float y, float z, ForceMode mode = ForceMode.Force);
 
     // Start is called before the first frame update
@@ -38,8 +39,14 @@ public class movementController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         { rb.AddForce(Vector3.right * thrust); }
-        
-        if(score >= 12)
+    }
+
+    public void CollectScore()
+    {
+        score += 1;
+        Debug.Log("zdobyles punkt, masz teraz:" + score);
+
+        if (score >= 12)
         {
             Debug.Log("----------------------------------------");
             Debug.Log("wygrales:)");
@@ -47,9 +54,9 @@ public class movementController : MonoBehaviour
         }
     }
 
-    public void CollectScore()
+    public void TextScore()
     {
         score += 1;
-        Debug.Log("zdobyles punkt, masz teraz:" + score);
+        Debug.Log("SCORE: " + score);
     }
 }
