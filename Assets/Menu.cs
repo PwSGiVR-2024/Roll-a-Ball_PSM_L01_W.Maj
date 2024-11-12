@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void UruchomGre(string SampleScene)
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("level1", LoadSceneMode.Single);
     }
 
 

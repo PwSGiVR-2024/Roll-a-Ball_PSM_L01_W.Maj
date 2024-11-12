@@ -4,17 +4,9 @@ using UnityEngine.UI;
 
 public class textScore : MonoBehaviour
 {
-
-
-    void Start()
+    public Text scoreText;
+    public void ScoreText()
     {
-        
+        scoreText.text = "SCORE: " + GetComponent<movementController>().score;
     }
-
-    void Update()
-    {
-        
-    }
-
-
 }
