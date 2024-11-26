@@ -65,7 +65,7 @@ public class movementController : MonoBehaviour
     public void CollectScore()
     {
         score += 1;
-        Debug.Log("zdobyles punkt, masz teraz:" + score);
+        Debug.Log("zdobyles punkt, masz teraz: " + score);
     }
 
     public void TextScore()
