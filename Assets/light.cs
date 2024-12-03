@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class light : MonoBehaviour
+public class Light : MonoBehaviour
 {
-    public GameObject player;
     Vector3 offset;
-
+    private Transform player;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         offset = transform.position - player.transform.position;
     }
 
     void Update()
+    {
+        LightPosition();
+    }
+
+    private void LightPosition()
     {
         transform.position = offset + player.transform.position;
     }

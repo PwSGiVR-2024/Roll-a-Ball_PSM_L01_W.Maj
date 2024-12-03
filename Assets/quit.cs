@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class quit : MonoBehaviour
+public class Quit : MonoBehaviour
 {
     public void Wyjdz(string menu)
     {

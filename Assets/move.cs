@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class move : MonoBehaviour
+public class Move : MonoBehaviour
 {
 
 
