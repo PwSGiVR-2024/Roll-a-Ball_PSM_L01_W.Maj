@@ -9,11 +9,8 @@ public class TextScore : MonoBehaviour
 
     void Update()
     {
-        ScoreText();
+        GetComponent<MovementController>().ScoreText();
     }
 
-    public void ScoreText()
-    {
-        scoreText.text = "SCORE: " + .score;
-    }
+
 }

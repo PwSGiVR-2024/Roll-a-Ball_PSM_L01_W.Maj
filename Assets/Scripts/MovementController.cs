@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using System;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class MovementController : MonoBehaviour
     readonly float y = 0;
     readonly float z = 0;
     public int score;
-    //public Text scoreText;
+    public Text scoreText;
     public event Action PickUpEvent;
 
     void Start()
@@ -30,6 +32,7 @@ public class MovementController : MonoBehaviour
     {
         GetInput();
         CheckPoint();
+        NextLevel();
     }
 
     void OnCollisionEnter(Collision GetContacts)
@@ -73,5 +76,13 @@ public class MovementController : MonoBehaviour
         score += 1;
         PickUpEvent?.Invoke();
         Debug.Log("zdobyles punkt, masz teraz: " + score);
+    }
+    public void ScoreText()
+    {
+        scoreText.text = "SCORE: " + score;
+    }
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2 & score >= 12) SceneManager.LoadScene(3);
     }
 }
