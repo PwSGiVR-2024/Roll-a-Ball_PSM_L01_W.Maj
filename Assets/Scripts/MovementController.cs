@@ -17,8 +17,7 @@ public class MovementController : MonoBehaviour
     readonly float y = 0;
     readonly float z = 0;
     public int score;
-    public Text scoreText;
-    public event Action PickUpEvent;
+
 
     void Start()
     {
@@ -31,8 +30,6 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         GetInput();
-        CheckPoint();
-        NextLevel();
     }
 
     void OnCollisionEnter(Collision GetContacts)
@@ -61,28 +58,5 @@ public class MovementController : MonoBehaviour
             rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             lezy = false;
         }
-    }
-    private void CheckPoint()
-    {
-        if (score >= 12)
-        {
-            Debug.Log("----------------------------------------");
-            Debug.Log("wygrales:)");
-            Debug.Log("----------------------------------------");
-        }
-    }
-    public void CollectScore()
-    {
-        score += 1;
-        PickUpEvent?.Invoke();
-        Debug.Log("zdobyles punkt, masz teraz: " + score);
-    }
-    public void ScoreText()
-    {
-        scoreText.text = "SCORE: " + score;
-    }
-    public void NextLevel()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 2 & score >= 12) SceneManager.LoadScene(3);
     }
 }
